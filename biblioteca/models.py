@@ -10,14 +10,14 @@ class Author(models.Model):
         ordering = ["name"]
         verbose_name_plural = "Authors"
 
-    def __init__(self):
-        return f'Autores: {self.name}'
+    def __str__(self):
+        return self.name
 
 class Category(models.Model):
     name = models.CharField(max_length=120, unique=True)
 
-    def __init__(self):
-        return f'Categoria: {self.name}'
+    def __str__(self):
+        return self.name
 
 class Livro(models.Model):
     titulo = models.CharField(max_length=200)

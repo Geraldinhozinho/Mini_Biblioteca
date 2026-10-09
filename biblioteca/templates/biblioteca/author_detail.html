@@ -1,16 +1,20 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Detalhes dos Autores</title>
 </head>
+
 <body>
     <h1>Detalhes do author:</h1>
+    <h1>{{ Autor }}</h1>
     <ul>
-        {% for autor in Autor %}
-            <li>{{autor}}</li>
+        {% for livro in Livros %}
+        <li>{{ livro.titulo }}</li>
         {% endfor %}
     </ul>
 </body>
+
 </html>

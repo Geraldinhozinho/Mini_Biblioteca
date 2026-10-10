@@ -5,7 +5,7 @@ from django.db import models
 class Author(models.Model):
     name = models.CharField(max_length=120)
     nationality = models.CharField(max_length=200, null=True)
-
+    
     class Meta:
         ordering = ["name"]
         verbose_name_plural = "Authors"

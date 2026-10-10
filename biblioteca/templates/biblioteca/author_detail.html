@@ -4,17 +4,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Detalhes dos Autores</title>
+    <title>Detalhes do Autor</title>
 </head>
 
 <body>
-    <h1>Detalhes do author:</h1>
-    <h1>{{ Autor }}</h1>
+    <h1>Detalhes do autor:</h1>
+    <ul>
+        <li>{{ Autor.name }}</li>
+        <li>Nacionalidade: {{ Autor.nationality }}</li>
+    </ul>
+
+    <h2>Livros desse autor:</h2>
+
     <ul>
         {% for livro in Livros %}
-        <li>{{ livro.titulo }}</li>
+            <li>{{ livro.titulo }}</li>
+        {% empty %}
+            <li>Sem livros cadastrados.</li>
         {% endfor %}
     </ul>
+    <a href="{% url 'lista_livros' %}" >Voltar</a>  
 </body>
 
 </html>

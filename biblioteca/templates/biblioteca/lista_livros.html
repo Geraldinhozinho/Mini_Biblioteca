@@ -10,8 +10,8 @@
 <body>
     <h1>Listagem de Livros:</h1>
     <ul>
-        {% for livro in Livros %}
-            <li><a href="{% url 'detail_author' livro.autor.id %}">{{ livro.autor }}</a></li>
+        {% for livro in Livros %} 
+            <li><a href="{% url 'detail_author' livro.autor.id %}">{{ livro.autor }} - {{livro.titulo}}</a></li>
         {% endfor %}
     </ul>
 </body>

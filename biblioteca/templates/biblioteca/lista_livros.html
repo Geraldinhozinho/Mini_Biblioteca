@@ -1,19 +1,25 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista livros</title>
 </head>
-
 <body>
     <h1>Listagem de Livros:</h1>
     <ul>
-        {% for livro in Livros %} 
-            <li><a href="{% url 'detail_author' livro.autor.id %}">{{ livro.autor }} </a>- {{livro.titulo}}</li>
+        {% for livro in Livros %}
+            <li>
+                {% for autor in livro.mul_autor.all %}
+                    <a href="{% url 'detail_author' autor.id %}">{{ autor.name }}
+                    {% if not forloop.last %}
+                        ,
+                    {% endif %}
+                    </a>
+                {% endfor %}
+                - {{ livro.titulo }}
+            </li>
         {% endfor %}
     </ul>
 </body>
-
 </html>

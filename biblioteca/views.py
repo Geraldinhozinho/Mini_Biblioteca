@@ -11,7 +11,7 @@ def listar_livros(request):
 
 def author_detail(request, id_A):
     author = get_object_or_404(Author, id = id_A)
-    livros = Livro.objects.filter(autor_id = id_A)
+    livros = Livro.objects.filter(mul_autor__id = id_A)
 
     contexto = {
         'Autor': author,
@@ -19,3 +19,6 @@ def author_detail(request, id_A):
     }
 
     return render(request, 'biblioteca/author_detail.html',contexto)
+
+
+            

@@ -21,11 +21,11 @@ class Category(models.Model):
 
 class Livro(models.Model):
     titulo = models.CharField(max_length=200)
-    autor = models.ForeignKey(Author, related_name="books", null=True, on_delete=models.SET_NULL)
+    mul_autor = models.ManyToManyField(Author, related_name="books2")
     categoria = models.ManyToManyField(Category, null=True)
     ano_publicacao = models.IntegerField()
     disponivel = models.BooleanField(default=True)
     
     def __str__(self):
-        return f"{self.titulo} - {self.autor} - {self.ano_publicacao}"
+        return f"{self.titulo} - {self.mul_autor} - {self.ano_publicacao}"
 

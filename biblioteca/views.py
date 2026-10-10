@@ -9,9 +9,9 @@ def listar_livros(request):
     }
     return render(request, 'biblioteca/lista_livros.html',contexto)
 
-def author_detail(request, author_id):
-    author = get_object_or_404(Author, id = author_id)
-    livros = Livro.objects.filter(autor__id = author_id)
+def author_detail(request, id_A):
+    author = get_object_or_404(Author, id = id_A)
+    livros = Livro.objects.filter(autor_id = id_A)
 
     contexto = {
         'Autor': author,

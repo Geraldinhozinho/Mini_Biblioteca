@@ -1,25 +1,32 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista livros</title>
 </head>
+
 <body>
     <h1>Listagem de Livros:</h1>
     <ul>
         {% for livro in Livros %}
-            <li>
-                {% for autor in livro.mul_autor.all %}
-                    <a href="{% url 'detail_author' autor.id %}">{{ autor.name }}
-                    {% if not forloop.last %}
-                        ,
-                    {% endif %}
-                    </a>
-                {% endfor %}
-                - {{ livro.titulo }}
-            </li>
+        <li>
+            {% for autor in livro.mul_autor.all %}
+            <a href="{% url 'detail_author' autor.id %}">{{ autor.name }}
+                {% if not forloop.last %}
+                ,
+                {% endif %}
+            </a>
+            {% endfor %}
+            - {{ livro.titulo }}
+        </li>
         {% endfor %}
     </ul>
+
+    </ul>
+    <a href="{% url 'create_author' %}">Cadastrar Autor</a>
+    <a href="{% url 'create_book' %}">Cadastrar Livro</a>
 </body>
+
 </html>

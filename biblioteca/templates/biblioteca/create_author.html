@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastrar Autor</title>
+</head>
+
+<body>
+    <form method="post">
+        {% csrf_token %}
+        
+        {{ form.name.label_tag }} 
+        {{ form.name }}
+        {% if form.name.errors %}
+            <div style="color: tomato; ">{{ form.name.errors }}</div>
+        {% endif %}
+
+        {{ form.nationality.label_tag }} 
+        {{ form.nationality }}
+        {% if form.nationality.errors %}
+            <div style="color: tomato; ">{{ form.nationality.errors }}</div>
+        {% endif %}
+
+        <button type="submit">Cadastrar</button>
+    </form>
+    <a href="{% url 'lista_livros' %}">Voltar</a>
+
+</body>
+
+</html>

@@ -12,4 +12,4 @@ class Cadastrar_Book_Form(forms.Form):
     mul_autor = forms.ModelMultipleChoiceField(queryset=Author.objects.all(), widget=forms.CheckboxSelectMultiple, required=False)
     categoria = forms.ModelMultipleChoiceField(queryset=Category.objects.all(), widget=forms.CheckboxSelectMultiple, required=False)
     ano_publicacao = forms.IntegerField()
-    disponivel = forms.BooleanField()
+    disponivel = forms.BooleanField(required=False)

@@ -14,8 +14,36 @@
         {{ form.titulo.label_tag }}
         {{ form.titulo }}
 
+        {% if form.titulo.errors %}
+            <div style="color: tomato; ">{{ form.titulo.errors }}</div>
+        {% endif %}
+
+        {{ form.mul_autor.label_tag }}
+        {{ form.mul_autor }}
+
+        {% if form.mul_autor.errors %}
+            <div style="color: tomato; ">{{ form.mul_autor.errors }}</div>
+        {% endif %}
+
+        {{ form.ano_publicacao.label_tag }}
+        {{ form.ano_publicacao }}
+
+        {% if form.ano_publicacao.errors %}
+            <div style="color: tomato; ">{{ form.ano_publicacao.errors }}</div>
+        {% endif %}
+
+        {{ form.categoria.label_tag }}
+        {{ form.categoria }}
+
+        {% if form.categoria.errors %}
+            <div style="color: tomato; ">{{ form.categoria.errors }}</div>
+        {% endif %}
+
         <button type="submit" >Cadastrar</button>
     </form>
+
+    <a href="{% url 'lista_livros' %}">Voltar</a>
+
 
 </body>
 </html>

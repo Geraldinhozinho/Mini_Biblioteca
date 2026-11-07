@@ -36,13 +36,26 @@ def create_author(request):
     return render(request, "biblioteca/create_author.html", {"form": form})
 
 
+
 def create_book(request):
     if request.method == "POST":
         form = Cadastrar_Book_Form(request.POST)
+
         if form.is_valid():
-            book = Livro(titulo=form.cleaned_data["titulo"], ano_publicacao=form.cleaned_data["ano_publicacao"], disponivel=form.cleaned_data["disponivel"])
+            book = Livro(
+                titulo=form.cleaned_data["titulo"],
+                ano_publicacao=form.cleaned_data["ano_publicacao"],
+                disponivel=form.cleaned_data["disponivel"]
+            )
+
             book.save()
+
+            book.mul_autor.set(form.cleaned_data["mul_autor"])
+            book.categoria.set(form.cleaned_data["categoria"])
+
             return redirect("lista_livros")
+
     else:
         form = Cadastrar_Book_Form()
+
     return render(request, "biblioteca/create_books.html", {"form": form})

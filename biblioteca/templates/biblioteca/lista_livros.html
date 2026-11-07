@@ -13,7 +13,7 @@
         {% for livro in Livros %}
         <li>
             {% for autor in livro.mul_autor.all %}
-            <a href="{% url 'detail_author' autor.id %}">{{ autor.name }}
+            <a href="{% url 'detail_author' autor.id %}">{{ autor.name }}</a>
                 {% if not forloop.last %}
                 ,
                 {% endif %}

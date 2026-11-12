@@ -10,7 +10,7 @@
 <body>
     <h1>Detalhes do autor:</h1>
     <ul>
-        <li>{{ Autor.name }}</li>
+        <li>Nome: {{ Autor.name }}</li>
         <li>Nacionalidade: {{ Autor.nationality }}</li>
     </ul>
 
@@ -18,12 +18,13 @@
 
     <ul>
         {% for livro in Livros %}
-            <li>{{ livro.titulo }}</li>
+            <li>{{ livro.titulo }} <a href="{% url 'edit_book' livro.id %}" >Editar livro</a></li>
+
         {% empty %}
             <li>Sem livros cadastrados.</li>
         {% endfor %}
     </ul>
-    <a href="{% url 'lista_livros' %}" >Voltar</a>  
+    <a href="{% url 'list_books' %}" >Voltar</a>  
 
 </body>
 

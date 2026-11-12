@@ -1,0 +1,45 @@
+
+
+
+body{
+    background-color: #bcb2b2;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.bottons-container{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    width: 100%;
+    justify-content: center;
+    margin-top: 20px;
+
+}
+
+.bottons{
+    background-color: rgb(103, 170, 225);
+    color: #454444;
+    padding: 10px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.bottons:hover{
+    background-color: rgba(103, 170, 225, 0.447);
+}
+
+.bottons2{
+    background-color: rgb(0, 0, 0);
+    color: #ffffff;
+    padding: 5px 10px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.bottons2:hover{
+    background-color: rgba(103, 170, 225, 0.447);
+}

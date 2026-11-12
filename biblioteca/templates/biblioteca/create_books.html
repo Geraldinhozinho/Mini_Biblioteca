@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Criar BOOK</title>
+    <title>{{ titulo }}</title>
 </head>
 <body>
-    <h1>Criar BOOK</h1>
+    <h1>{{ titulo }}</h1>
 
     <form method="post">
         {% csrf_token %}
-        
+
         {{ form.titulo.label_tag }}
         {{ form.titulo }}
 
@@ -39,10 +39,10 @@
             <div style="color: tomato; ">{{ form.categoria.errors }}</div>
         {% endif %}
 
-        <button type="submit" >Cadastrar</button>
+        <button type="submit" >{{ botao }}</button>
     </form>
 
-    <a href="{% url 'lista_livros' %}">Voltar</a>
+    <a href="{% url 'list_books' %}">Voltar</a>
 
 
 </body>

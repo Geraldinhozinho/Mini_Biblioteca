@@ -1,3 +1,4 @@
+from django.db import transaction
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Livro, Author
 from .forms import Cadastrar_Autor_Form, Cadastrar_Book_Form
@@ -8,7 +9,7 @@ def listar_livros(request):
     contexto = {
         'Livros': livros
     }
-    return render(request, 'biblioteca/lista_livros.html',contexto)
+    return render(request, 'biblioteca/list_books.html',contexto)
 
 def author_detail(request, id_A):
     author = get_object_or_404(Author, id = id_A)
@@ -37,25 +38,30 @@ def create_author(request):
 
 
 
-def create_book(request):
-    if request.method == "POST":
-        form = Cadastrar_Book_Form(request.POST)
-
-        if form.is_valid():
-            book = Livro(
-                titulo=form.cleaned_data["titulo"],
-                ano_publicacao=form.cleaned_data["ano_publicacao"],
-                disponivel=form.cleaned_data["disponivel"]
-            )
-
-            book.save()
-
-            book.mul_autor.set(form.cleaned_data["mul_autor"])
-            book.categoria.set(form.cleaned_data["categoria"])
-
-            return redirect("lista_livros")
-
+def create_book(request, pk=None, author_id=None):
+    if pk:
+        book = get_object_or_404(Livro, pk=pk)
+        titulo = "Editar Livro"
+        botao = "Editar Livro"
     else:
-        form = Cadastrar_Book_Form()
+        book =Livro()
+        titulo = "Cadastrar Livro"
+        botao = "Cadastrar Livro"
+    if request.method == "POST":
+        form = Cadastrar_Book_Form(request.POST, instance=book)
+        if form.is_valid():
+            book = form.save()
+            if author_id:
+                return redirect("detail_author", author_id)
+            else:
+                return redirect("list_books")
+    else:
+        form = Cadastrar_Book_Form(instance=book)
 
-    return render(request, "biblioteca/create_books.html", {"form": form})
+    contexto = {
+        "form": form,
+        "titulo": titulo,
+        "botao": botao
+    }
+
+    return render(request, "biblioteca/create_books.html", contexto)

@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -5,6 +7,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista livros</title>
+    <link rel="stylesheet" href="{% static 'css/list_books.css' %}">
 </head>
 
 <body>
@@ -20,13 +23,16 @@
             </a>
             {% endfor %}
             - {{ livro.titulo }}
+            <a class="bottons2" href="{% url 'edit_book' livro.id %}" >Editar livro</a>
         </li>
         {% endfor %}
     </ul>
 
     </ul>
-    <a href="{% url 'create_author' %}">Cadastrar Autor</a>
-    <a href="{% url 'create_book' %}">Cadastrar Livro</a>
+    <div class="bottons-container">
+        <a class="bottons" href="{% url 'create_author' %}">Cadastrar novo Autor</a>
+        <a class="bottons" href="{% url 'create_book' %}">Cadastrar novo Livro</a>
+    </div>
 </body>
 
 </html>

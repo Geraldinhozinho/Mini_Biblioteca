@@ -43,3 +43,38 @@ body{
 .bottons2:hover{
     background-color: rgba(103, 170, 225, 0.447);
 }
+
+.list-books-item{
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+    width: 50%;
+}
+
+.bottons_exit{
+    background-color: rgb(118, 126, 133);
+    color: #e5e3e3;
+    padding: 10px 25px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.bottons_exit:hover{
+    background-color: rgba(118, 126, 133, 0.447);
+    color: #343333;
+
+}
+
+.bottons3{
+    background-color: rgb(135, 106, 222);
+    color: #ffffff;
+    padding: 10px 10px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.bottons3:hover{
+    background-color: rgba(135, 106, 222, 0.447);
+}

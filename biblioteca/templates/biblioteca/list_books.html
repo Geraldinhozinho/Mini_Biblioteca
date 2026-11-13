@@ -12,9 +12,9 @@
 
 <body>
     <h1>Listagem de Livros:</h1>
-    <ul>
+    <ul class="list-books">
         {% for livro in Livros %}
-        <li>
+        <li class="list-books-item">
             {% for autor in livro.mul_autor.all %}
             <a href="{% url 'detail_author' autor.id %}">{{ autor.name }}</a>
                 {% if not forloop.last %}
@@ -31,7 +31,7 @@
     </ul>
     <div class="bottons-container">
         <a class="bottons" href="{% url 'create_author' %}">Cadastrar novo Autor</a>
-        <a class="bottons" href="{% url 'create_book' %}">Cadastrar novo Livro</a>
+        <a class="bottons3" href="{% url 'create_book' %}">Cadastrar novo Livro</a>
     </div>
 </body>
 

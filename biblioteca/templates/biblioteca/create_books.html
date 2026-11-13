@@ -1,9 +1,12 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ titulo }}</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/create_books.css' %}">
 </head>
 <body>
     <h1>{{ titulo }}</h1>
@@ -11,38 +14,49 @@
     <form method="post">
         {% csrf_token %}
 
-        {{ form.titulo.label_tag }}
-        {{ form.titulo }}
+        <div class="titulo">
+            {{ form.titulo.label_tag }}
+            {{ form.titulo }}
+        
+            {% if form.titulo.errors %}
+                <div style="color: tomato; ">{{ form.titulo.errors }}</div>
+            {% endif %}
+        </div>
 
-        {% if form.titulo.errors %}
-            <div style="color: tomato; ">{{ form.titulo.errors }}</div>
-        {% endif %}
+        <div class="autor">
+            {{ form.mul_autor.label_tag }}
+            {{ form.mul_autor }}
 
-        {{ form.mul_autor.label_tag }}
-        {{ form.mul_autor }}
+            {% if form.mul_autor.errors %}
+                <div style="color: tomato; ">{{ form.mul_autor.errors }}</div>
+            {% endif %}
+        </div>
 
-        {% if form.mul_autor.errors %}
-            <div style="color: tomato; ">{{ form.mul_autor.errors }}</div>
-        {% endif %}
-
+        <div class="ano">
         {{ form.ano_publicacao.label_tag }}
         {{ form.ano_publicacao }}
 
         {% if form.ano_publicacao.errors %}
             <div style="color: tomato; ">{{ form.ano_publicacao.errors }}</div>
         {% endif %}
+        </div>
 
+        <div class="categoria">
         {{ form.categoria.label_tag }}
         {{ form.categoria }}
 
         {% if form.categoria.errors %}
             <div style="color: tomato; ">{{ form.categoria.errors }}</div>
         {% endif %}
+        </div>    
 
-        <button type="submit" >{{ botao }}</button>
+        <div class="bottons-container">
+            <button class="bottons" type="submit" >{{ botao }}</button>
+            <a class="bottons_exit" href="{% url 'list_books' %}">Voltar</a>
+        </div>
     </form>
 
-    <a href="{% url 'list_books' %}">Voltar</a>
+    
 
 
 </body>

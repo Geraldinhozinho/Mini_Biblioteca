@@ -13,22 +13,30 @@
 <body>
     <form method="post">
         {% csrf_token %}
-        
-        {{ form.name.label_tag }} 
-        {{ form.name }}
-        {% if form.name.errors %}
-            <div style="color: tomato; ">{{ form.name.errors }}</div>
-        {% endif %}
+        <div class="name">
+            {{ form.name.label_tag }} 
+            {{ form.name }}
+            
+            {% if form.name.errors %}
+                <div style="color: tomato; ">{{ form.name.errors }}</div>
+            {% endif %}
+        </div>
+        <div class="nationality">
+            {{ form.nationality.label_tag }} 
+            {{ form.nationality }}
+            
 
-        {{ form.nationality.label_tag }} 
-        {{ form.nationality }}
-        {% if form.nationality.errors %}
-            <div style="color: tomato; ">{{ form.nationality.errors }}</div>
-        {% endif %}
+            {% if form.nationality.errors %}
+                <div style="color: tomato; ">{{ form.nationality.errors }}</div>
+            {% endif %}
+        </div>
 
-        <button type="submit">Cadastrar</button>
+        <div class="bottons-container">
+            <button class="bottons" type="submit">Cadastrar</button>
+            <a class="bottons_exit" href="{% url 'list_books' %}">Voltar</a>
+        </div>
+
     </form>
-    <a href="{% url 'list_books' %}">Voltar</a>
 
 </body>
 

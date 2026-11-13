@@ -22,7 +22,7 @@
 
     <ul class="list">
         {% for livro in Livros %}
-            <li class="list-item" >{{ livro.titulo }} <a class="bottons" href="{% url 'edit_book' livro.id %}" >Editar livro</a></li>
+            <li class="list-item" >{{ livro.titulo }} <a class="bottons" href="{% url 'edit_book_author' livro.id Autor.id %}" >Editar livro</a></li>
 
         {% empty %}
             <li>Sem livros cadastrados.</li>

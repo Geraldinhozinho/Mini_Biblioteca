@@ -1,3 +1,5 @@
+import datetime
+
 from django import forms
 
 from .models import Author, Category, Livro
@@ -24,11 +26,22 @@ class Cadastrar_Book_Form(forms.ModelForm):
         }
         #Espaços sobrando no começo, no fim e repetidos no meio são removidos antes de salvar. Depois da limpeza, o título precisa ter pelo menos 3 caracteres.
     def clean_titulo(self):
-        titulo = ' '.join(self.cleaned_data.get('titulo', '').split())
+        titulo = self.cleaned_data['titulo'].strip()
 
-        if len(titulo) <= 3:
+        if len(titulo) < 3:
             raise forms.ValidationError(
                 "O título deve ter pelo menos 3 caracteres."
             )
-
         return titulo
+        
+        # Não pode ser posterior ao ano atual. O ano atual deve ser calculado na hora da validação, sem número fixo no código.
+    def clean_ano_publicacao(self):
+        ano_publicacao = self.cleaned_data['ano_publicacao']
+        ano_atual = datetime.date.today().year
+
+        if ano_publicacao > ano_atual:
+            raise forms.ValidationError(
+                "O ano de publicação não pode ser depois do ano atual."
+            )
+
+        return ano_publicacao

@@ -6,6 +6,7 @@ urlpatterns = [
     path('create_author', create_author, name="create_author"),
     path('create_book', create_book, name="create_book"),
     path('<int:pk>/edit/', create_book, name="edit_book"),
+    path('<int:pk>/<int:author_id>/edit/ ', create_book, name="edit_book_author"),
 
 
 

@@ -2,12 +2,14 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ titulo }}</title>
     <link rel="stylesheet" type="text/css" href="{% static 'css/create_books.css' %}">
 </head>
+
 <body>
     <h1>{{ titulo }}</h1>
 
@@ -17,9 +19,9 @@
         <div class="titulo">
             {{ form.titulo.label_tag }}
             {{ form.titulo }}
-        
+
             {% if form.titulo.errors %}
-                <div style="color: rgb(255, 48, 11); ">{{ form.titulo.errors }}</div>
+            <div style="color: rgb(255, 48, 11); ">{{ form.titulo.errors }}</div>
             {% endif %}
         </div>
 
@@ -28,36 +30,64 @@
             {{ form.mul_autor }}
 
             {% if form.mul_autor.errors %}
-                <div style="color: tomato; ">{{ form.mul_autor.errors }}</div>
+            <div style="color: tomato; ">{{ form.mul_autor.errors }}</div>
             {% endif %}
         </div>
 
         <div class="ano">
-        {{ form.ano_publicacao.label_tag }}
-        {{ form.ano_publicacao }}
+            {{ form.ano_publicacao.label_tag }}
+            {{ form.ano_publicacao }}
 
-        {% if form.ano_publicacao.errors %}
+            {% if form.ano_publicacao.errors %}
             <div style="color: tomato; ">{{ form.ano_publicacao.errors }}</div>
-        {% endif %}
+            {% endif %}
         </div>
 
         <div class="categoria">
-        {{ form.categoria.label_tag }}
-        {{ form.categoria }}
+            {{ form.categoria.label_tag }}
+            {{ form.categoria }}
 
-        {% if form.categoria.errors %}
+            {% if form.categoria.errors %}
             <div style="color: tomato; ">{{ form.categoria.errors }}</div>
-        {% endif %}
-        </div>    
+            {% endif %}
+        </div>
+
+        <div class="paginas">
+            {{ form.paginas.label_tag }}
+            {{ form.paginas }}
+
+            {% if form.paginas.errors %}
+            <div style="color: tomato; ">{{ form.paginas.errors }}</div>
+            {% endif %}
+        </div>
+
+        <div class="isbn">
+            {{ form.isbn.label_tag }}
+            {{ form.isbn }}
+
+            {% if form.isbn.errors %}
+            <div style="color: tomato; ">{{ form.isbn.errors }}</div>
+            {% endif %}
+        </div>
+
+        <div class="Imagem">
+            {{ form.image.label_tag }}
+            {{ form.image }}
+
+            {% if form.image.errors %}
+            <div style="color: tomato; ">{{ form.image.errors }}</div>
+            {% endif %}
+        </div>
 
         <div class="bottons-container">
-            <button class="bottons" type="submit" >{{ botao }}</button>
+            <button class="bottons" type="submit">{{ botao }}</button>
             <a class="bottons_exit" href="{% url 'list_books' %}">Voltar</a>
         </div>
     </form>
 
-    
+
 
 
 </body>
+
 </html>

@@ -1,11 +1,11 @@
 
 
-from datetime import timezone
+from django.utils import timezone
 
 from django.db import models
 from django.core.validators import FileExtensionValidator, MaxValueValidator, MinLengthValidator, MinValueValidator
 
-from Mini_Biblioteca.biblioteca.validators import validate_file_size
+from biblioteca.validators import validate_file_size
 
 
 # Create your models here.
@@ -13,7 +13,6 @@ from Mini_Biblioteca.biblioteca.validators import validate_file_size
 class Author(models.Model):
     name = models.CharField(max_length=120)
     nationality = models.CharField(max_length=200, null=True)
-    
     class Meta:
         ordering = ["name"]
         verbose_name_plural = "Authors"

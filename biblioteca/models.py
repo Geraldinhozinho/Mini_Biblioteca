@@ -3,7 +3,9 @@
 from datetime import timezone
 
 from django.db import models
-from django.core.validators import MaxValueValidator, MinLengthValidator, MinValueValidator
+from django.core.validators import FileExtensionValidator, MaxValueValidator, MinLengthValidator, MinValueValidator
+
+from Mini_Biblioteca.biblioteca.validators import validate_file_size
 
 
 # Create your models here.
@@ -33,6 +35,7 @@ class Livro(models.Model):
     disponivel = models.BooleanField(default=True)
     paginas = models.IntegerField(validators=[MinValueValidator(1), MaxValueValidator(5000)])
     isbn = models.CharField(max_length=13, unique=True, validators=[MinLengthValidator(13)])
+    image = models.ImageField("imagem", upload_to="livros/", blank=True, validators=[validate_file_size, FileExtensionValidator(["jpg", "jpeg", "png"])])
     
     
     def __str__(self):

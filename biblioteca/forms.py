@@ -12,13 +12,16 @@ class Cadastrar_Autor_Form(forms.Form):
 class Cadastrar_Book_Form(forms.ModelForm):
     class Meta:
         model = Livro
-        fields = ['titulo', 'mul_autor', 'categoria', 'ano_publicacao', 'disponivel']
+        fields = ['titulo', 'mul_autor', 'categoria', 'ano_publicacao', 'disponivel', 'paginas', 'isbn', 'image']
         labels = {
             'titulo': 'Título',
             'mul_autor': 'Autor(es)',
             'categoria': 'Categoria(s)',
             'ano_publicacao': 'Ano de Publicação',
             'disponivel': 'Disponível',
+            'paginas': 'Número de Páginas',
+            'isbn': 'ISBN',
+            'image': 'Imagem',
         }
         widgets = {
             'mul_autor': forms.CheckboxSelectMultiple(),

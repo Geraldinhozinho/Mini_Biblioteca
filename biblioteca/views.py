@@ -1,68 +1,80 @@
-from django.db import transaction
-from django.shortcuts import render, get_object_or_404, redirect
-from .models import Livro, Author
+
+from django.urls import reverse_lazy
+
 from .forms import Cadastrar_Autor_Form, Cadastrar_Book_Form
+from .models import Livro, Author
+
+from django.views.generic import ListView, DetailView, CreateView, DeleteView, TemplateView, UpdateView
+
 # Create your views here.
 
-def listar_livros(request):
-    livros = Livro.objects.all()
-    contexto = {
-        'Livros': livros
-    }
-    return render(request, 'biblioteca/list_books.html',contexto)
+class listar_livros(ListView):
+    model = Livro
+    template_name = 'biblioteca/list_books.html'
+    context_object_name = 'Livros'
+    ordering = ['titulo']
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['total_livros'] = Livro.objects.count()
+        context['livros_disponiveis'] = Livro.objects.filter(
+            disponivel=True
+        ).count()
+        return context
 
-def author_detail(request, id_A):
-    author = get_object_or_404(Author, id = id_A)
-    livros = Livro.objects.filter(mul_autor__id = id_A)
+class author_detail(DetailView):
+    model = Author
+    template_name = 'biblioteca/author_detail.html'
+    context_object_name = 'Autor'
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["Livros"] = Livro.objects.filter(mul_autor__id=self.object.id)
+        return context
 
-    contexto = {
-        'Autor': author,
-        'Livros': livros
-    }
+class create_author(CreateView):
+    model = Author
+    form_class = Cadastrar_Autor_Form
+    template_name = "biblioteca/create_author.html"
+    
+    def get_success_url(self):
+        return reverse_lazy('detail_author', kwargs={'pk': self.object.pk})
+    
+class create_book(CreateView):
+    model = Livro
+    form_class = Cadastrar_Book_Form
+    template_name = "biblioteca/create_books.html"
+    success_url = reverse_lazy("list_books")
 
-    return render(request, 'biblioteca/author_detail.html',contexto)
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['titulo'] = 'Cadastrar Livro'
+        context['botao'] = 'Cadastrar Livro'
+        context['author_id'] = None
+        return context
 
+class update_book(UpdateView):
+    model = Livro
+    form_class = Cadastrar_Book_Form
+    template_name = 'biblioteca/create_books.html'
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['titulo'] = 'Editar Livro'
+        context['botao'] = 'Editar Livro'
+        context['author_id'] = self.kwargs.get('author_id')
+        return context
 
-def create_author(request):
-    if request.method == "POST":
-        form = Cadastrar_Autor_Form(request.POST)
-        if form.is_valid():
-            autor = Author(name = form.cleaned_data["name"], nationality=form.cleaned_data["nationality"])
-            autor.save()
-
-            return redirect("detail_author", autor.id)  
-    else:
-        form = Cadastrar_Autor_Form() 
-    return render(request, "biblioteca/create_author.html", {"form": form})
-
-
-
-def create_book(request, pk=None, author_id=None):
-    if pk:
-        book = get_object_or_404(Livro, pk=pk)
-        titulo = "Editar Livro"
-        botao = "Editar Livro"
-    else:
-        book =Livro()
-        titulo = "Cadastrar Livro"
-        botao = "Cadastrar Livro"
-    if request.method == "POST":
-        form = Cadastrar_Book_Form(request.POST, instance=book)
-
-        if form.is_valid():
-            book = form.save()
-            if author_id:
-                return redirect("detail_author", author_id)
-            else:
-                return redirect("list_books")
-    else:
-        form = Cadastrar_Book_Form(instance=book)
-
-    contexto = {
-        "form": form,
-        "titulo": titulo,
-        "botao": botao
-    }
-
-    return render(request, "biblioteca/create_books.html", contexto)
+    def get_success_url(self):
+        author_id = self.kwargs.get('author_id')
+        if author_id:
+            return reverse_lazy('detail_author', kwargs={'pk': author_id})
+        return reverse_lazy('list_books')
+     
+class delete_book(DeleteView):
+    model = Livro
+    template_name = 'biblioteca/livro_confirm_delete.html'
+    success_url = reverse_lazy('list_books')
+    
+class sobre(TemplateView):
+    template_name = 'biblioteca/sobre.html'

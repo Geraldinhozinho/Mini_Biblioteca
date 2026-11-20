@@ -96,3 +96,30 @@ o servidor deve ter com uploads?
         Armazenar em local seguro
         Utilizar bibliotecas confiáveis
     São camadas outros tipos de proteção desejaveis. 
+
+3. Class-Based Views
+a) Na CreateView, quem faz o if request.method == "POST" que escrevíamos à mão? O que acontece quando o formulário é inválido?
+    A própria classe CreateView faz esse controle "por baixo dos panos". Ela identifica se a requisição é GET ou POST.
+    GET: apresenta o formulário vazio.
+    POST: recebe os dados, valida o formulário e salva o objeto se estiver válido.
+    Se o formulário for inválido, o Django não salva os dados e renderiza novamente a página, mostrando os erros de validação para o usuário corrigir.
+
+b) Por que o upload da capa continuou funcionando na CreateView sem passarmos request.FILES manualmente?
+    Porque a CreateView já faz esse tratamento interno. Ela utiliza os dados de request.POST e os arquivos de request.FILES para construir o formulário.
+
+    Assim, não precisa passar request.FILES manualmente como nas FBV.
+
+c) Por que o DeleteView mostra uma página de confirmação e só exclui no POST? Que problema aconteceria se a exclusão ocorresse em um GET?
+    Porque o método GET deve apenas consultar ou exibir informações, sem modificar os dados do sistema.
+
+    O DeleteView utiliza o GET para mostrar a página de confirmação e o POST para definitivamente excluir o objeto.
+
+    Se a exclusão acontecesse em um GET, alguém poderia provocar uma exclusão apenas acessando um link por exemplo.
+
+d) Cite uma vantagem e uma desvantagem das CBVs em relação às FBVs. Em que situação você ainda escolheria uma função?
+
+    As vantagens das CBVs é reduzir a quantidade de código, pois oferecem funcionalidades prontas, como listar, cadastrar, editar e excluir registros, facilitando o reaproveitamento de código.
+
+    As desvantagem é que podem ser mais difíceis de entender inicialmente, pois possuem métodos internos, o que pode dificultar a identificação de onde determinado comportamento está acontecendo.
+
+    Podemos escolher uma FBV quando precisamos implementar uma lógica muito específica e simples, que não se encaixa bem nas funcionalidades das classes genéricas do Django.

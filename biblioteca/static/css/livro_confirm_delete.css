@@ -1,0 +1,25 @@
+.bottons3{
+    background-color: rgb(135, 106, 222);
+    color: #ffffff;
+    padding: 10px 10px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.bottons3:hover{
+    background-color: rgba(135, 106, 222, 0.447);
+}
+
+.bottons4{
+    background-color: rgb(241, 87, 40);
+    color: #ffffff;
+    padding: 10px 10px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.bottons4:hover{
+    background-color: rgba(241, 87, 40, 0.447);
+}

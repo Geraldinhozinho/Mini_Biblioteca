@@ -1,13 +1,19 @@
-import datetime
+
 
 from django import forms
+from .models import Author, Livro
+from django.utils import timezone
 
-from .models import Author, Category, Livro
-
-class Cadastrar_Autor_Form(forms.Form):
-    name = forms.CharField(label="Autor", max_length=20, required=True)
-    nationality = forms.CharField(label="Nacionalidade", max_length=20, required=False)
-
+class Cadastrar_Autor_Form(forms.ModelForm):
+    class Meta:
+        model = Author
+        fields = ['name', 'nationality']
+        labels = {
+            'name': 'Nome',
+            'nationality': 'Nacionalidade',
+        }
+    model = Author
+    fields = ['name', 'nationality']
 
 class Cadastrar_Book_Form(forms.ModelForm):
     class Meta:
@@ -27,24 +33,20 @@ class Cadastrar_Book_Form(forms.ModelForm):
             'mul_autor': forms.CheckboxSelectMultiple(),
             'categoria': forms.CheckboxSelectMultiple(),
         }
+        
         #Espaços sobrando no começo, no fim e repetidos no meio são removidos antes de salvar. Depois da limpeza, o título precisa ter pelo menos 3 caracteres.
     def clean_titulo(self):
         titulo = self.cleaned_data['titulo'].strip()
-
+        
         if len(titulo) < 3:
-            raise forms.ValidationError(
-                "O título deve ter pelo menos 3 caracteres."
-            )
+            raise forms.ValidationError("O título deve ter pelo menos 3 caracteres.")
         return titulo
         
         # Não pode ser posterior ao ano atual. O ano atual deve ser calculado na hora da validação, sem número fixo no código.
     def clean_ano_publicacao(self):
         ano_publicacao = self.cleaned_data['ano_publicacao']
-        ano_atual = datetime.date.today().year
-
+        ano_atual = timezone.now().year
+        
         if ano_publicacao > ano_atual:
-            raise forms.ValidationError(
-                "O ano de publicação não pode ser depois do ano atual."
-            )
-
+            raise forms.ValidationError("O ano de publicação não pode ser depois do ano atual.")
         return ano_publicacao

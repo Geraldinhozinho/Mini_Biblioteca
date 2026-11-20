@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sobre</title>
+
+    <style>
+        .bottons_exit{
+            background-color: rgb(118, 126, 133);
+            color: #e5e3e3;
+            padding: 10px 25px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .bottons_exit:hover{
+            background-color: rgba(118, 126, 133, 0.447);
+            color: #343333;
+
+        }
+    </style>
+</head>
+<body>
+    <h1>Sobre da Biblioteca</h1>
+    <p>Bem-vindo à nossa biblioteca virtual! Aqui você pode encontrar uma ampla variedade de livros e recursos para explorar.</p>
+    <p>&copy; 2026 Geraldo - ADS</p>
+    <a class="bottons_exit" href="{% url 'list_books' %}">Voltar</a>
+
+</body>
+</html>

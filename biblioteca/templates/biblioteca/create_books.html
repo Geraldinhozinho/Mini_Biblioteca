@@ -1,7 +1,7 @@
 {% load static %}
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
@@ -32,7 +32,7 @@
             {% if form.mul_autor.errors %}
             <div style="color: tomato; ">{{ form.mul_autor.errors }}</div>
             {% endif %}
-        </div>
+        </div>  
 
         <div class="ano">
             {{ form.ano_publicacao.label_tag }}
@@ -79,9 +79,22 @@
             {% endif %}
         </div>
 
+        <div>
+            <label for="disponivel">Disponível:</label>
+            {{ form.disponivel }}
+        </div>
+
         <div class="bottons-container">
             <button class="bottons" type="submit">{{ botao }}</button>
-            <a class="bottons_exit" href="{% url 'list_books' %}">Voltar</a>
+            {% if author_id %}
+                <a class="bottons_exit" href="{% url 'detail_author' author_id %}">
+                    Voltar
+                </a>
+            {% else %}
+                <a class="bottons_exit" href="{% url 'list_books' %}">
+                    Voltar
+                </a>
+            {% endif %}
         </div>
     </form>
 

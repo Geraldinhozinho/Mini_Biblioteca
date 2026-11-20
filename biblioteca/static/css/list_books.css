@@ -48,7 +48,7 @@ body{
     padding: 10px;
     margin-bottom: 10px;
     border-radius: 6px;
-    width: 50%;
+    width: 100%;
 }
 
 .bottons_exit{
@@ -77,4 +77,36 @@ body{
 
 .bottons3:hover{
     background-color: rgba(135, 106, 222, 0.447);
+}
+
+.bottons4{
+    background-color: rgb(241, 87, 40);
+    color: #ffffff;
+    padding: 10px 10px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.bottons4:hover{
+    background-color: rgba(241, 87, 40, 0.447);
+}
+
+.bottons5{
+    background-color: rgb(231, 241, 40);
+    color: #343434;
+    padding: 10px 10px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.bottons5:hover{
+    background-color: rgba(231, 241, 40, 0.447);
+}
+
+.book-image{
+    width: 100px;
+    height: auto;
+    margin-right: 10px;
 }

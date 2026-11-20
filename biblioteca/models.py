@@ -1,12 +1,10 @@
 
-
 from django.utils import timezone
 
 from django.db import models
 from django.core.validators import FileExtensionValidator, MaxValueValidator, MinLengthValidator, MinValueValidator
 
 from biblioteca.validators import validate_file_size
-
 
 # Create your models here.
 
@@ -16,7 +14,7 @@ class Author(models.Model):
     class Meta:
         ordering = ["name"]
         verbose_name_plural = "Authors"
-
+        
     def __str__(self):
         return self.name
 
@@ -36,7 +34,5 @@ class Livro(models.Model):
     isbn = models.CharField(max_length=13, unique=True, validators=[MinLengthValidator(13)])
     image = models.ImageField("imagem", upload_to="livros/", blank=True, validators=[validate_file_size, FileExtensionValidator(["jpg", "jpeg", "png"])])
     
-    
     def __str__(self):
         return f"{self.titulo} - {self.mul_autor} - {self.ano_publicacao}"
-

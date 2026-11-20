@@ -15,6 +15,12 @@
     <ul class="list-books">
         {% for livro in Livros %}
         <li class="list-books-item">
+
+            {% if livro.image %}
+                <img class="book-image" src="{{ livro.image.url }}"
+                alt="{{ livro.titulo }}" width="300">
+            {% endif %}
+
             {% for autor in livro.mul_autor.all %}
             <a href="{% url 'detail_author' autor.id %}">{{ autor.name }}</a>
                 {% if not forloop.last %}
@@ -24,6 +30,7 @@
             {% endfor %}
             - {{ livro.titulo }}
             <a class="bottons2" href="{% url 'edit_book' livro.id %}" >Editar livro</a>
+            <a class="bottons4" href="{% url 'delete_book' livro.id %}">Excluir</a>
         </li>
         {% endfor %}
     </ul>
@@ -32,7 +39,14 @@
     <div class="bottons-container">
         <a class="bottons" href="{% url 'create_author' %}">Cadastrar novo Autor</a>
         <a class="bottons3" href="{% url 'create_book' %}">Cadastrar novo Livro</a>
+        <a class="bottons5" href="{% url 'sobre' %}">Sobre</a>
     </div>
+
+
+
+    <h1>Quantidde de livros: {{ total_livros }}</h1>
+    <h1>Quantidade de livros disponíveis: {{ livros_disponiveis }}</h1>
+
 </body>
 
 </html>

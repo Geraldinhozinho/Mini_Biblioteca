@@ -1,0 +1,509 @@
+[
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$N8jO56oGgcQF5urIYxVPl1$BkO6pR8Pti2AkbVXByZuTLZBX5Ewy47MPP8XX9xk4II=",
+    "last_login": "2026-11-21T15:32:34.373Z",
+    "is_superuser": true,
+    "username": "geraldo",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2026-11-20T00:24:11.055Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "mjjx59nxbcnsxqh36mgras7iiewdostx",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2hAoUMCle89AhplBqoYmpV0Z765NutDtf-_9l0iwrTVtnZc0kTgLLU6_WwZ8cNsB3aHdZolzW5cpy12RB-3yOhM_L4f7d1Ch12_NnHH06ClnRcCx6KCij6YgGbRaOaeMCgzeRdBhQO80RWOVHTIWH0bx_gAAqDfX:1xUn4s:nJ0m4KCy3ruL5BhXgbAbOQfONvgGL5FOmCSGA03OESk",
+    "expire_date": "2026-12-05T15:32:34.383Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "yvohsv6k8nbsj9obffmpjjev6tojvquu",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2hAoUMCle89AhplBqoYmpV0Z765NutDtf-_9l0iwrTVtnZc0kTgLLU6_WwZ8cNsB3aHdZolzW5cpy12RB-3yOhM_L4f7d1Ch12_NnHH06ClnRcCx6KCij6YgGbRaOaeMCgzeRdBhQO80RWOVHTIWH0bx_gAAqDfX:1xUCS3:D3dz_QZ_trzkkuvaOT3-Mm5xyw2xI2U89PFpQVWEpl4",
+    "expire_date": "2026-12-04T00:26:03.788Z"
+  }
+},
+{
+  "model": "biblioteca.author",
+  "pk": 1,
+  "fields": {
+    "name": "Alana",
+    "nationality": "África"
+  }
+},
+{
+  "model": "biblioteca.author",
+  "pk": 6,
+  "fields": {
+    "name": "Geraldo",
+    "nationality": "Brasil"
+  }
+},
+{
+  "model": "biblioteca.author",
+  "pk": 7,
+  "fields": {
+    "name": "Mathues",
+    "nationality": "Rússia"
+  }
+},
+{
+  "model": "biblioteca.author",
+  "pk": 8,
+  "fields": {
+    "name": "Guilherme",
+    "nationality": "EUA"
+  }
+},
+{
+  "model": "biblioteca.author",
+  "pk": 9,
+  "fields": {
+    "name": "Vívian",
+    "nationality": "EUA"
+  }
+},
+{
+  "model": "biblioteca.category",
+  "pk": 1,
+  "fields": {
+    "name": "Comédia"
+  }
+},
+{
+  "model": "biblioteca.category",
+  "pk": 2,
+  "fields": {
+    "name": "Sucesso"
+  }
+},
+{
+  "model": "biblioteca.category",
+  "pk": 3,
+  "fields": {
+    "name": "Biologia"
+  }
+},
+{
+  "model": "biblioteca.category",
+  "pk": 4,
+  "fields": {
+    "name": "Terror"
+  }
+},
+{
+  "model": "biblioteca.category",
+  "pk": 5,
+  "fields": {
+    "name": "Romance"
+  }
+},
+{
+  "model": "biblioteca.livro",
+  "pk": 1,
+  "fields": {
+    "titulo": "Um milhão em mil passos",
+    "ano_publicacao": 2024,
+    "disponivel": true,
+    "paginas": 10,
+    "isbn": "4242343253252",
+    "image": "livros/Sol_tSXwrLu.jpeg",
+    "mul_autor": [
+      6
+    ],
+    "categoria": [
+      2
+    ]
+  }
+},
+{
+  "model": "biblioteca.livro",
+  "pk": 6,
+  "fields": {
+    "titulo": "Como sobreviver na Amazônia",
+    "ano_publicacao": 2024,
+    "disponivel": true,
+    "paginas": 621,
+    "isbn": "3212311231321",
+    "image": "livros/Sol.jpeg",
+    "mul_autor": [
+      7
+    ],
+    "categoria": [
+      3,
+      4
+    ]
+  }
+},
+{
+  "model": "biblioteca.livro",
+  "pk": 7,
+  "fields": {
+    "titulo": "Testando Bugs",
+    "ano_publicacao": 2022,
+    "disponivel": true,
+    "paginas": 22,
+    "isbn": "2217221722172",
+    "image": "livros/Sol_uNjIMrm.jpeg",
+    "mul_autor": [
+      8,
+      9
+    ],
+    "categoria": [
+      1,
+      4
+    ]
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 1,
+  "fields": {
+    "action_time": "2026-11-20T00:26:10.682Z",
+    "user": [
+      "geraldo"
+    ],
+    "content_type": [
+      "biblioteca",
+      "category"
+    ],
+    "object_id": "1",
+    "object_repr": "Comédia",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 2,
+  "fields": {
+    "action_time": "2026-11-20T00:26:18.199Z",
+    "user": [
+      "geraldo"
+    ],
+    "content_type": [
+      "biblioteca",
+      "category"
+    ],
+    "object_id": "2",
+    "object_repr": "Sucesso",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 3,
+  "fields": {
+    "action_time": "2026-11-20T00:26:24.729Z",
+    "user": [
+      "geraldo"
+    ],
+    "content_type": [
+      "biblioteca",
+      "category"
+    ],
+    "object_id": "3",
+    "object_repr": "Biologia",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 4,
+  "fields": {
+    "action_time": "2026-11-21T15:32:54.379Z",
+    "user": [
+      "geraldo"
+    ],
+    "content_type": [
+      "biblioteca",
+      "author"
+    ],
+    "object_id": "5",
+    "object_repr": "Geraldo Camilo de Oliveira Júnior",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 5,
+  "fields": {
+    "action_time": "2026-11-21T15:32:54.379Z",
+    "user": [
+      "geraldo"
+    ],
+    "content_type": [
+      "biblioteca",
+      "author"
+    ],
+    "object_id": "4",
+    "object_repr": "Geraldo Camilo de Oliveira Júnior",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 6,
+  "fields": {
+    "action_time": "2026-11-21T15:32:54.379Z",
+    "user": [
+      "geraldo"
+    ],
+    "content_type": [
+      "biblioteca",
+      "author"
+    ],
+    "object_id": "3",
+    "object_repr": "Geraldo Camilo de Oliveira Júnior",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 7,
+  "fields": {
+    "action_time": "2026-11-21T15:32:54.379Z",
+    "user": [
+      "geraldo"
+    ],
+    "content_type": [
+      "biblioteca",
+      "author"
+    ],
+    "object_id": "2",
+    "object_repr": "Premkumar",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 8,
+  "fields": {
+    "action_time": "2026-11-21T15:33:02.050Z",
+    "user": [
+      "geraldo"
+    ],
+    "content_type": [
+      "biblioteca",
+      "author"
+    ],
+    "object_id": "6",
+    "object_repr": "Geraldo",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 9,
+  "fields": {
+    "action_time": "2026-11-21T15:33:09.078Z",
+    "user": [
+      "geraldo"
+    ],
+    "content_type": [
+      "biblioteca",
+      "author"
+    ],
+    "object_id": "7",
+    "object_repr": "Mathues",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 10,
+  "fields": {
+    "action_time": "2026-11-21T15:33:18.568Z",
+    "user": [
+      "geraldo"
+    ],
+    "content_type": [
+      "biblioteca",
+      "author"
+    ],
+    "object_id": "8",
+    "object_repr": "Guilherme",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 11,
+  "fields": {
+    "action_time": "2026-11-21T15:33:26.797Z",
+    "user": [
+      "geraldo"
+    ],
+    "content_type": [
+      "biblioteca",
+      "author"
+    ],
+    "object_id": "9",
+    "object_repr": "Vívian",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 12,
+  "fields": {
+    "action_time": "2026-11-21T15:33:39.544Z",
+    "user": [
+      "geraldo"
+    ],
+    "content_type": [
+      "biblioteca",
+      "category"
+    ],
+    "object_id": "4",
+    "object_repr": "Terror",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 13,
+  "fields": {
+    "action_time": "2026-11-21T15:33:43.060Z",
+    "user": [
+      "geraldo"
+    ],
+    "content_type": [
+      "biblioteca",
+      "category"
+    ],
+    "object_id": "5",
+    "object_repr": "Romance",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 14,
+  "fields": {
+    "action_time": "2026-11-21T15:34:13.982Z",
+    "user": [
+      "geraldo"
+    ],
+    "content_type": [
+      "biblioteca",
+      "livro"
+    ],
+    "object_id": "1",
+    "object_repr": "Um milhão em mil passos - biblioteca.Author.None - 2024",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Titulo\", \"Mul autor\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 15,
+  "fields": {
+    "action_time": "2026-11-21T15:34:18.510Z",
+    "user": [
+      "geraldo"
+    ],
+    "content_type": [
+      "biblioteca",
+      "livro"
+    ],
+    "object_id": "5",
+    "object_repr": "aaaaa - biblioteca.Author.None - 2012",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 16,
+  "fields": {
+    "action_time": "2026-11-21T15:34:18.510Z",
+    "user": [
+      "geraldo"
+    ],
+    "content_type": [
+      "biblioteca",
+      "livro"
+    ],
+    "object_id": "2",
+    "object_repr": "f                cfefeefef - biblioteca.Author.None - 1487",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 17,
+  "fields": {
+    "action_time": "2026-11-21T15:40:20.397Z",
+    "user": [
+      "geraldo"
+    ],
+    "content_type": [
+      "biblioteca",
+      "livro"
+    ],
+    "object_id": "6",
+    "object_repr": "Como sobreviver na Amazônia - biblioteca.Author.None - 2024",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 18,
+  "fields": {
+    "action_time": "2026-11-21T15:40:26.920Z",
+    "user": [
+      "geraldo"
+    ],
+    "content_type": [
+      "biblioteca",
+      "livro"
+    ],
+    "object_id": "1",
+    "object_repr": "Um milhão em mil passos - biblioteca.Author.None - 2024",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Imagem\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 19,
+  "fields": {
+    "action_time": "2026-11-21T15:41:11.656Z",
+    "user": [
+      "geraldo"
+    ],
+    "content_type": [
+      "biblioteca",
+      "livro"
+    ],
+    "object_id": "7",
+    "object_repr": "Testando Bugs - biblioteca.Author.None - 2022",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+}
+]
